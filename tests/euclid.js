@@ -33,10 +33,8 @@ QUnit.module('Тестируем функцию euclid', function () {
 	});
 
 	QUnit.test('Функция должна правильно работать, даже если подали некорректные данные', function (assert) {
-		assert.strictEqual(isNaN(euclid('a', 4, 'b', 2, 'c')), true);
-
-		assert.strictEqual(isNaN(euclid('a', 'b', 'c')), true);
-
-		assert.strictEqual(isNaN(euclid(1, 2, 3)), false);
+		assert.throws(() => {euclid(1, '3', 2)}, TypeError('Incorrect input'));
+		assert.throws(() => {euclid('a', 'b', 'c')}, TypeError('Incorrect input'))
+		assert.throws(() => {euclid(1, 2, '3')}, TypeError('Incorrect input'))
 	});
 });
