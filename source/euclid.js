@@ -1,17 +1,42 @@
 'use strict';
 
-const euclid = function(...numbers) {
-    if (numbers.length === 2) {
-        if (!numbers[1]) {
-            return numbers[0];
-        } else {
-            return euclid(numbers[1], numbers[0] % numbers[1]);
+/**
+ * Находит наибольший общий делитель алгоритмом Евклида.
+ * @constructor
+ * @param {number} args - Переменное число параметров.
+ */
+const euclid = (...args) => {
+    let res = 0
+
+    // Проверка на корректность входных данных
+    args.forEach((item) => {
+        if (!isFinite(item)) {
+            res = NaN
         }
-    } else {
-        let res = numbers[0];
-        for (let i = 1; i < numbers.length; i++) {
-            res = euclid(res, numbers[i])
-        }
+    })
+
+    if (isNaN(res)) {
         return res
     }
+
+    // Алгоритм Евклида
+    args.forEach((item, index, array) => {
+        if (index === 0) {
+            res = array[0]
+        } else {
+            let a = item
+            let b = res
+            while (a !== b) {
+                if (a > b) {
+                    let tmp = a
+                    a = b
+                    b = tmp
+                }
+                b = b - a
+            }
+            res = a
+        }
+    });
+    return res
 }
+
