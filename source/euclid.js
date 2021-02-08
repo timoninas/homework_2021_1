@@ -19,9 +19,7 @@ const euclid = (...numbers) => {
         let b = currentValue;
         while (a !== b) {
             if (a > b) {
-                const tmp = a;
-                a = b;
-                b = tmp;
+                [a, b] = [b, a]
             }
             b = b - a;
         }
