@@ -9,7 +9,7 @@
 const euclid = (...numbers) => {
     // Проверка на корректность входных данных
     if (numbers.some((element) => typeof element != 'number')) {
-        throw TypeError('Incorrect input')
+        throw TypeError('Incorrect input');
     }
 
     // Алгоритм Евклида
@@ -19,11 +19,11 @@ const euclid = (...numbers) => {
         let b = currentValue;
         while (a !== b) {
             if (a > b) {
-                [a, b] = [b, a]
+                [a, b] = [b, a];
             }
             b = b - a;
         }
         return a;
-    }, initialResult );
+    }, initialResult);
 }
 
