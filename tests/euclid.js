@@ -34,7 +34,7 @@ QUnit.module('Тестируем функцию euclid', function () {
 
 	QUnit.test('Функция должна правильно работать, даже если подали некорректные данные', function (assert) {
 		assert.throws(() => {euclid(1, '3', 2)}, TypeError('Incorrect input'));
-		assert.throws(() => {euclid('a', 'b', 'c')}, TypeError('Incorrect input'))
-		assert.throws(() => {euclid(1, 2, '3')}, TypeError('Incorrect input'))
+		assert.throws(() => {euclid('a', 'b', 'c')}, TypeError('Incorrect input'));
+		assert.throws(() => {euclid(1, 2, '3')}, TypeError('Incorrect input'));
 	});
 });
